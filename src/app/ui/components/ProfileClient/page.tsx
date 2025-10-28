@@ -3,6 +3,13 @@ import Header from "@/app/ui/components/Header/page";
 import Link from "next/link";
 import { removePageAction } from "@/app/actions/removePage";
 
+type Page = {
+  id: string;
+  title: string;
+  description: string;
+  slug: string;
+};
+
 export default function ProfileClient({ pages }: { pages: Page[] }) {
   return (
     <div>
