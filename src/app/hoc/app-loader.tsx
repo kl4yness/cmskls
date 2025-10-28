@@ -1,0 +1,19 @@
+"use client";
+import { useSession } from "next-auth/react";
+import { useAuthStore } from "../store/auth.store";
+import { useEffect } from "react";
+
+interface IProps {
+  children: React.ReactNode;
+}
+
+export default function AppLoader({ children }: IProps) {
+  const { data: session, status } = useSession();
+  const { setAuthState } = useAuthStore();
+
+  useEffect(() => {
+    setAuthState(status, session);
+  }, [status, session]);
+
+  return <>{children}</>;
+}
