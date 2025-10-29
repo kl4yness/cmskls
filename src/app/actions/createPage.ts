@@ -1,6 +1,7 @@
 "use server";
 
-import prisma from "@/app/lib/prisma";
+import prisma from "../lib/prisma";
+
 import { auth } from "../auth/auth";
 
 export async function sendPageToDB(data: {

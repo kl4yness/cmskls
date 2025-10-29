@@ -1,9 +1,10 @@
 "use server";
 
-import prisma from "@/app/lib/prisma";
+import prisma from "../lib/prisma";
+
 import { auth } from "../auth/auth";
 import { JSONContent } from "@tiptap/react";
-import { redirect } from "next/dist/server/api-utils";
+
 
 export async function updatePage(data: {
   id: string;
