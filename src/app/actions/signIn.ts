@@ -19,7 +19,7 @@ export async function signInWithCredetials(username: string, password: string) {
 
     return {
       success: true,
-      message: "Вы успешно вошли в систему",
+      message: "Authorized",
     };
   } catch (error: any) {
     console.error("Authorization error:", error);
