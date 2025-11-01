@@ -13,7 +13,7 @@ export async function signInWithCredetials(username: string, password: string) {
     if (!result || result.error) {
       return {
         success: false,
-        message: "Неверное имя пользователя или пароль",
+        message: "Invalid username or password",
       };
     }
 
@@ -22,18 +22,18 @@ export async function signInWithCredetials(username: string, password: string) {
       message: "Вы успешно вошли в систему",
     };
   } catch (error: any) {
-    console.error("Ошибка авторизации:", error);
+    console.error("Authorization error:", error);
 
     if (error.message?.includes("CredentialsSignin")) {
       return {
         success: false,
-        message: "Неверное имя пользователя или пароль",
+        message: "Invalid username or password",
       };
     }
 
     return {
       success: false,
-      message: "Произошла ошибка при входе. Попробуйте позже.",
+      message: "An error occurred while logging in. Please try again later.",
     };
   }
 }

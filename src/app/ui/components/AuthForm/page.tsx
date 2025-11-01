@@ -70,11 +70,14 @@ export default function AuthForm() {
       return;
     }
 
-    addToast({
+    if (result.success) {
+      addToast({
       title: "Success!",
       description: "Account registered ✅",
       color: "success",
     });
+      redirect('/pages/profile')
+    }
   };
 
   return (

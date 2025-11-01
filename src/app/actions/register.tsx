@@ -8,13 +8,13 @@ export async function registerUser(formData: FormData) {
   const { username, password, confirmPassword } = formData;
 
   if (password !== confirmPassword) {
-    return { success: false, message: "Пароли не совпадают" };
+    return { success: false, message: "Your passwords dont match" };
   }
 
   if (password.length < 8) {
     return {
       success: false,
-      message: "Пароль не должен быть менее 8 символов",
+      message: "Password must be more than 8",
     };
   }
 
@@ -26,7 +26,7 @@ export async function registerUser(formData: FormData) {
     if (existingUser) {
       return {
         success: false,
-        message: "Пользователь с таким именем уже существует",
+        message: "Same username has been registered",
       };
     }
 
@@ -41,18 +41,18 @@ export async function registerUser(formData: FormData) {
 
     return { success: true, user };
   } catch (error: any) {
-    console.error("Ошибка при регистрации:", error);
+    console.error("Error:", error);
 
     if (error.code === "P2002") {
       return {
         success: false,
-        message: "Такой пользователь уже зарегистрирован",
+        message: "Same user have in Data Base",
       };
     }
 
     return {
       success: false,
-      message: "Произошла непредвиденная ошибка при регистрации",
+      message: "Error",
     };
   }
 }
